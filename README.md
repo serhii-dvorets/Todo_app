@@ -13,8 +13,10 @@ Ability to `clear completed` removes all completed items from the list.
 It remaines visible if there is at least 1 completed item in the list. 
 
 Double click on the TODO title makes it editable
-`Enter`  saves changes
+`Enter` saves changes
 `Ecs` cancels editing
 Todo title can't be empty!
+
+State is stored in the localStorage
 
 Used technology stack: React / HTML / CSS

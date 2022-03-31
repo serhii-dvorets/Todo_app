@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react';
+import { useLocalStorageState } from './localStorage';
 import { TodoList } from './TodoList';
 import { TodosFilter } from './TodosFilter';
 
 export const TodoApp = () => {
   const [inputText, setInputText] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useLocalStorageState('todos', []);
   const [allTodosCompleted, setAllTodosCompleted] = useState(false);
   const [filterType, setFilterType] = useState('all');
 

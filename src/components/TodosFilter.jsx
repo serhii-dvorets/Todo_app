@@ -1,39 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const TodosFilter = ({ onFilter }) => (
-  <ul className="filters">
-    <li>
-      <a
-        href="#/"
-        className="selected"
-        onClick={() => {
-          onFilter('all');
-        }}
-      >
-        All
-      </a>
-    </li>
+export const TodosFilter = ({ onFilter }) => {
+  const [filter, setFilter] = useState('all');
 
-    <li>
-      <a
-        href="#/active"
-        onClick={() => {
-          onFilter('active');
-        }}
-      >
-        Active
-      </a>
-    </li>
+  return (
+    <ul className="filters">
+      <li>
+        <a
+          href="#/"
+          className={filter === 'all' ? 'selected' : ''}
+          onClick={() => {
+            onFilter('all');
+            setFilter('all');
+          }}
+        >
+          All
+        </a>
+      </li>
 
-    <li>
-      <a
-        href="#/completed"
-        onClick={() => {
-          onFilter('completed');
-        }}
-      >
-        Completed
-      </a>
-    </li>
-  </ul>
-);
+      <li>
+        <a
+          href="#/active"
+          className={filter === 'active' ? 'selected' : ''}
+          onClick={() => {
+            onFilter('active');
+            setFilter('active');
+          }}
+        >
+          Active
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="#/completed"
+          className={filter === 'completed' ? 'selected' : ''}
+          onClick={() => {
+            onFilter('completed');
+            setFilter('completed');
+          }}
+        >
+          Completed
+        </a>
+      </li>
+    </ul>
+  );
+};
